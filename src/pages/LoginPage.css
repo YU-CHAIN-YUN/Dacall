@@ -1,0 +1,48 @@
+/* ✅ 淡綠色登入按鈕 */
+.btn-light-green {
+    background-color: #C3E6CB;
+    color: black;
+    border: none;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+/* ✅ 滑鼠滑過時變色 & 放大 */
+.btn-light-green:hover {
+    background-color: #A5D6A7;
+    transform: scale(1.05);
+}
+
+/* ✅ 滑鼠點擊時增加按壓效果 */
+.btn-light-green:active {
+    background-color: #81C784;
+    transform: scale(0.98);
+}
+
+/* ✅ 註冊按鈕（灰色按鈕） */
+.btn-gray {
+    background-color: #E0E0E0;
+    color: black;
+    border: none;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+/* ✅ 滑鼠滑過註冊按鈕時變色 & 放大 */
+.btn-gray:hover {
+    background-color: #BDBDBD;
+    transform: scale(1.05);
+}
+
+/* ✅ 滑鼠點擊註冊按鈕時增加按壓效果 */
+.btn-gray:active {
+    background-color: #9E9E9E;
+    transform: scale(0.98);
+}
+
+/* ✅ 輸入框聚焦時，圖標動畫 */
+.input-group:focus-within .input-icon {
+    color: #5a40ee;
+    transform: scale(1.2);
+    transition: all 0.3s ease-in-out;
+}
