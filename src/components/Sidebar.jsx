@@ -12,6 +12,14 @@ function Sidebar({ isOpen, onClose }) {
   const navigate = useNavigate();
   const sidebarRef = useRef(null);
   const [openMenus, setOpenMenus] = useState({});
+  const [userName, setUserName] = useState("使用者"); // 預設名稱 (未從後端獲取)
+
+  // 模擬從後端獲取使用者名稱
+  useEffect(() => {
+    setTimeout(() => {
+      setUserName("王小明"); // TODO: 改為從後端 API 獲取
+    }, 500);
+  }, []);
 
   const handleLogout = () => {
     logout();
@@ -64,6 +72,7 @@ function Sidebar({ isOpen, onClose }) {
             </Link>
           </li>
 
+          {/* 🔹 打卡選單 (可展開) */}
           <li>
             <button
               className={`sidebar-link btn-toggle ${
@@ -78,7 +87,7 @@ function Sidebar({ isOpen, onClose }) {
             </button>
             <ul className={`submenu ${openMenus["clock"] ? "show" : ""}`}>
               <li>
-                <Link to="/clock-in">打卡及補打卡</Link>
+                <Link to="/clockin">打卡及補打卡</Link>
               </li>
               <li>
                 <Link to="/clock-history">查詢打卡紀錄</Link>
@@ -95,6 +104,7 @@ function Sidebar({ isOpen, onClose }) {
             </Link>
           </li>
 
+          {/* 🔹 簽核系統 (可展開) */}
           <li>
             <button
               className={`sidebar-link btn-toggle ${
@@ -126,7 +136,7 @@ function Sidebar({ isOpen, onClose }) {
               onClick={() => toggleMenu("permissions")}
             >
               <span>
-                <i className="fa-solid fa-users-gear"></i> 權限管理
+                <i className="fas fa-users-cog"></i> 權限管理
               </span>
               <i className="fas fa-chevron-down"></i>
             </button>
@@ -140,6 +150,10 @@ function Sidebar({ isOpen, onClose }) {
             </ul>
           </li>
 
+          {/* 🔹 顯示使用者名稱 & 登出按鈕 */}
+          <li className="user-info">
+            <p>{userName}，你好！</p> {/* ✅ 歡迎語 */}
+          </li>
           <li>
             <button className="btn btn-danger w-100" onClick={handleLogout}>
               登出

@@ -103,3 +103,13 @@
 .submenu a:hover {
   background: #e9ecef;
 }
+
+/* 🔹 歡迎語樣式 */
+.user-info {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 0;
+  color: #6f61df;
+  border-bottom: 1px solid #ddd;
+}
