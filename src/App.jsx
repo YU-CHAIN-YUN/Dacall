@@ -2,8 +2,10 @@ import { useState } from "react"; // ✅ 確保 useState 正確導入
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar"; // ✅ 確保 Sidebar 有正確導入
-import ClockIn from "./pages/ClockIn";
 import Login from "./pages/LoginPage";
+import ForgotPassword from "./pages/ForgotPassword";
+import ClockIn from "./pages/ClockIn";
+
 import { AuthProvider, useAuth } from "./context/AuthContext";
 
 function App() {
@@ -26,6 +28,7 @@ function MainLayout() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/clockin" element={isAuthenticated ? <ClockIn /> : <Login />} />
+          <Route path="/ForgotPassword" element={<ForgotPassword />} />
         </Routes>
       </div>
     </div>

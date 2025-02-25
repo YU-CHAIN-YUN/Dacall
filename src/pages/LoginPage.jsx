@@ -87,7 +87,7 @@ function LoginPage() {
 
           {/* 忘記密碼 */}
           <div className="d-flex justify-content-end mb-3">
-            <a href="#" className="text-muted">
+            <a href="/ForgotPassword" className="text-muted">
               忘記密碼
             </a>
           </div>
