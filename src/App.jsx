@@ -6,6 +6,7 @@ import Login from "./pages/LoginPage";
 import ForgotPassword from "./pages/ForgotPassword";
 import Register from "./pages/Register";
 import ClockIn from "./pages/ClockIn";
+import ClockHistory from "./pages/ClockHistory";
 
 import Footer from "./components/Footer"; // 引入 Footer
 
@@ -33,6 +34,7 @@ function MainLayout() {
           <Route path="/ForgotPassword" element={<ForgotPassword />} />
           <Route path="/Register" element={<Register />} />
           <Route path="/clockin" element={isAuthenticated ? <ClockIn /> : <Login />} />
+          <Route path="/clock-history" element={isAuthenticated ?<ClockHistory /> : <Login />} />
         </Routes>
         <Footer />
       </div>

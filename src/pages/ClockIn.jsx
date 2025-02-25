@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min.js"; 
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./ClockIn.css";
 
@@ -30,21 +30,31 @@ function ClockIn() {
         {/* 左側區域 (Logo + 按鈕) */}
         <div className="left-section">
           <div className="text-center">
-            <img src="src/image/logo.png" alt="Dacall Logo" className="logo mb-3" />
+            <img
+              src="src/image/logo.png"
+              alt="Dacall Logo"
+              className="logo mb-3"
+            />
           </div>
           <div className="d-flex flex-column align-items-center">
-            <button className="btn btn-dark mb-2 btn-feedback" onClick={handleClockIn}>
+            <button
+              className="btn btn-dark mb-2 btn-feedback"
+              onClick={handleClockIn}
+            >
               上班打卡
             </button>
-            <button className="btn btn-dark mb-2 btn-feedback" onClick={handleClockOut}>
+            <button
+              className="btn btn-dark mb-2 btn-feedback"
+              onClick={handleClockOut}
+            >
               下班打卡
             </button>
-            <button className="btn btn-dark mb-2 btn-feedback">
-              補打卡
-            </button>
-            <button className="btn btn-dark btn-feedback">
-              查詢打卡紀錄
-            </button>
+            <button className="btn btn-dark mb-2 btn-feedback">補打卡</button>
+            <a href="/clock-history">
+              <button className="btn btn-dark btn-feedback">
+                查詢打卡紀錄
+              </button>
+            </a>
           </div>
         </div>
 
@@ -52,8 +62,8 @@ function ClockIn() {
         <div className="right-section">
           <div className="status-cards">
             <div className="status-card">
-              <img 
-                src="src/image/Clock.png" 
+              <img
+                src="src/image/Clock.png"
                 className={showClockInAnim ? "shake-anim" : ""}
                 alt="Clock In Icon"
               />
@@ -61,8 +71,8 @@ function ClockIn() {
               <p>{clockInTime || "尚未打卡"}</p>
             </div>
             <div className="status-card">
-              <img 
-                src="src/image/Home.png" 
+              <img
+                src="src/image/Home.png"
                 className={showClockOutAnim ? "shake-anim" : ""}
                 alt="Clock Out Icon"
               />

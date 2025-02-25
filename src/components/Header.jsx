@@ -63,11 +63,13 @@ function Header({ toggleSidebar }) {
 
       {/* 中間logo */}
       <div className="header-center">
-        <img
-          src="src\image\logo.png"
-          alt="header-logo"
-          className="header-logo"
-        />
+        <a href="\clockin">
+          <img
+            src="src\image\logo.png"
+            alt="header-logo"
+            className="header-logo"
+          />
+        </a>
       </div>
 
       {/* 可拖動的個人頭像 */}
