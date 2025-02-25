@@ -1,11 +1,13 @@
-import { useState } from "react"; // ✅ 確保 useState 正確導入
+import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
-import Sidebar from "./components/Sidebar"; // ✅ 確保 Sidebar 有正確導入
+import Sidebar from "./components/Sidebar";
 import Login from "./pages/LoginPage";
 import ForgotPassword from "./pages/ForgotPassword";
 import Register from "./pages/Register";
 import ClockIn from "./pages/ClockIn";
+
+import Footer from "./components/Footer"; // 引入 Footer
 
 import { AuthProvider, useAuth } from "./context/AuthContext";
 
@@ -32,6 +34,7 @@ function MainLayout() {
           <Route path="/Register" element={<Register />} />
           <Route path="/clockin" element={isAuthenticated ? <ClockIn /> : <Login />} />
         </Routes>
+        <Footer />
       </div>
     </div>
   );

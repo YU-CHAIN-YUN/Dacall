@@ -1,0 +1,28 @@
+.footer {
+    height: 50px;
+    width: 100%;
+    padding: 15px;
+    background: white;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    /* left: 0; */
+    z-index: 1000;
+    border-top: 1px solid #e0e0e0;
+}
+
+.contact-link {
+    color: #333;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.contact-link:hover {
+    text-decoration: underline;
+}
+
+/* Modal 樣式 */
+.modal-content {
+    border-radius: 10px;
+    background: #e3f2fd;
+}
