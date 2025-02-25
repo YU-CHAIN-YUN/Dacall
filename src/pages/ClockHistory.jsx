@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";  // 🔹 修正：引入 React
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "@fortawesome/fontawesome-free/css/all.min.css";
@@ -18,7 +18,7 @@ function ClockHistory() {
   const [records, setRecords] = useState({});
   const [employees, setEmployees] = useState([]);
 
-  // **獲取部門清單（模擬 API）**
+  // **獲取部門清單**
   useEffect(() => {
     setTimeout(() => {
       setDepartments(["人力資源部", "資訊部", "業務部", "財務部", "客服部"]);
@@ -64,7 +64,6 @@ function ClockHistory() {
 
   return (
     <div className="container clock-history-page">
-      {/* 🔹 查詢打卡紀錄標題 */}
       <h2 className="text-center page-title">查詢打卡紀錄</h2>
 
       {/* 🔹 搜尋區塊 */}
@@ -137,17 +136,9 @@ function ClockHistory() {
           <table className="table record-table">
             <thead>
               <tr>
-                <th rowSpan="2">姓名</th>
+                <th>姓名</th>
                 {[...Array(daysInMonth)].map((_, index) => (
-                  <th key={index} colSpan="2">{index + 1}</th>
-                ))}
-              </tr>
-              <tr>
-                {[...Array(daysInMonth)].map((_, index) => (
-                  <>
-                    <th key={`clockIn-${index}`}>上班</th>
-                    <th key={`clockOut-${index}`}>下班</th>
-                  </>
+                  <th key={`day-${index}`} colSpan="2">{index + 1}</th>
                 ))}
               </tr>
             </thead>
@@ -157,10 +148,10 @@ function ClockHistory() {
                   <tr key={emp.id}>
                     <td className="align-middle">{emp.name}</td>
                     {[...Array(daysInMonth)].map((_, index) => (
-                      <>
-                        <td key={`in-${index}`} className="clock-cell">{records[emp.id]?.[index + 1]?.clockIn || "--"}</td>
-                        <td key={`out-${index}`} className="clock-cell">{records[emp.id]?.[index + 1]?.clockOut || "--"}</td>
-                      </>
+                      <React.Fragment key={`emp-${emp.id}-day-${index}`}>
+                        <td className="clock-cell">{records[emp.id]?.[index + 1]?.clockIn || "--"}</td>
+                        <td className="clock-cell">{records[emp.id]?.[index + 1]?.clockOut || "--"}</td>
+                      </React.Fragment>
                     ))}
                   </tr>
                 ))
