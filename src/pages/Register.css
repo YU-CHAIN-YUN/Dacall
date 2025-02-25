@@ -1,0 +1,51 @@
+/* 註冊頁面樣式 */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #ffffff;
+}
+
+.register-box {
+    width: 400px;
+    background: linear-gradient(to bottom, #cce7ff, #ffffff);
+    border-radius: 20px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    text-align: left;
+}
+
+.register-box h3 {
+    font-size: 30px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #333;
+}
+
+.logo {
+    width: 200px;
+    height: auto;
+    margin-bottom: 30px;
+}
+
+.btn-brown {
+    background-color: #8B5E3B;
+    color: white;
+}
+
+.btn-brown:hover {
+    background-color: #6E4A2F;
+}
+
+.text-link {
+    text-decoration: none;
+    color: #cb34d6;
+    font-size: 14px;
+    transition: color 0.3s ease-in-out;
+}
+
+.text-link:hover {
+    color: #9433a0;
+    font-size: medium;
+}

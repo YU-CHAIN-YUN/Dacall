@@ -64,7 +64,7 @@ function LoginPage() {
           {/* 密碼輸入框 */}
           <div className="input-group mb-3">
             <span className="input-group-text input-icon">
-            <i className="fa-solid fa-lock"></i>
+              <i className="fa-solid fa-lock"></i>
             </span>
             <input
               type={showPassword ? "text" : "password"}
@@ -98,9 +98,11 @@ function LoginPage() {
           </button>
 
           {/* 註冊按鈕（灰色 + 觸覺回饋） */}
-          <button type="button" className="btn btn-gray w-100">
-            註冊
-          </button>
+          <a href="/Register">
+            <button type="button" className="btn btn-gray w-100">
+              註冊
+            </button>
+          </a>
         </form>
       </div>
     </div>

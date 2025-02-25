@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Sidebar from "./components/Sidebar"; // ✅ 確保 Sidebar 有正確導入
 import Login from "./pages/LoginPage";
 import ForgotPassword from "./pages/ForgotPassword";
+import Register from "./pages/Register";
 import ClockIn from "./pages/ClockIn";
 
 import { AuthProvider, useAuth } from "./context/AuthContext";
@@ -27,8 +28,9 @@ function MainLayout() {
       <div className="content">
         <Routes>
           <Route path="/" element={<Login />} />
-          <Route path="/clockin" element={isAuthenticated ? <ClockIn /> : <Login />} />
           <Route path="/ForgotPassword" element={<ForgotPassword />} />
+          <Route path="/Register" element={<Register />} />
+          <Route path="/clockin" element={isAuthenticated ? <ClockIn /> : <Login />} />
         </Routes>
       </div>
     </div>
