@@ -8,8 +8,29 @@
   z-index: 1055;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   padding: 0 20px;
+  position: relative; /* 確保內部的絕對定位生效 */
+}
+
+/* 🔹 左側 (漢堡按鈕) */
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+/* 🔹 中間置中區塊 (標題或 LOGO) */
+.header-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+/* 🔹 右側 (通知欄 & 個人頭像) */
+.header-right {
+  display: flex;
+  align-items: center;
+  margin-left: auto; /* ✅ 自動靠右 */
 }
 
 /* 🔹 左側漢堡按鈕 */
@@ -19,6 +40,11 @@
   font-size: 24px;
   cursor: pointer;
   z-index: 1000; /* ✅ 確保按鈕可點擊 */
+}
+
+.header-logo{
+  width: 50px;
+  height: auto;
 }
 
 /* 🔹 可拖動的個人頭像 */

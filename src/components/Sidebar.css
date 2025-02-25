@@ -1,62 +1,105 @@
 /* 🔹 側邊欄樣式 */
 .sidebar-container {
-    width: 250px;
-    background-color: #f8f9fa;
-    position: fixed;
-    top: 0;
-    left: -250px; /* ✅ 預設隱藏 */
-    height: 100vh;
-    z-index: 1050;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-    transition: left 0.3s ease-in-out;
-  }
-  
-  /* 當 `show` 類別存在時，側邊欄展開 */
-  .sidebar-container.show {
-    left: 0;
-  }
-  
-  /* 🔹 側邊欄標題與關閉按鈕 */
-  .sidebar-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .close-btn {
-    background: none;
-    border: none;
-    font-size: 18px;
-    cursor: pointer;
-  }
-  
-  /* 🔹 側邊欄選單 */
-  .sidebar-body {
-    padding: 15px;
-  }
-  
-  .sidebar-link {
-    display: flex;
-    align-items: center;
-    padding: 12px;
-    font-size: 16px;
-    font-weight: bold;
-    color: #333;
-    text-decoration: none;
-    width: 100%;
-    border: none;
-    background: none;
-    cursor: pointer;
-    text-align: left;
-  }
-  
-  .sidebar-link i {
-    margin-right: 10px;
-  }
-  
-  .sidebar-link:hover {
-    background-color: #ddd;
-  }
-  
+  width: 250px;
+  background-color: #f8f9fa;
+  position: fixed;
+  top: 0;
+  left: -250px; /* ✅ 預設隱藏 */
+  height: 100vh;
+  z-index: 1050;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  transition: left 0.3s ease-in-out;
+}
+
+/* 當 `show` 類別存在時，側邊欄展開 */
+.sidebar-container.show {
+  left: 0;
+}
+
+/* 🔹 側邊欄標題與關閉按鈕 */
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* 🔹 側邊欄選單 */
+.sidebar-body {
+  padding: 15px;
+}
+
+/* 🔹 主要選單樣式 */
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between;  ✅ 讓文字靠左，箭頭靠右 */
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+  width: 100%;
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.sidebar-link i {
+  margin-right: 10px;
+}
+
+/* 🔹 讓箭頭 (`fa-chevron-down`) 靠右 */
+.sidebar-link .fa-chevron-down {
+  margin-left: auto;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* 🔹 當按鈕 `.btn-toggle` 被點擊 (開啟時)，箭頭旋轉 */
+.btn-toggle.open .fa-chevron-down {
+  transform: rotate(180deg);
+}
+
+/* 🔹 子選單 */
+.submenu {
+  list-style: none;
+  padding-left: 30px;
+  margin-top: 5px;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* 🔹 當選單展開時顯示 */
+.submenu.show {
+  display: block;
+  opacity: 1;
+}
+
+/* 🔹 讓 `submenu` 的 `Link` 字體樣式與主選單一致 */
+.submenu li {
+  padding: 8px 10px;
+}
+
+.submenu a {
+  align-items: center;
+  font-size: 16px;  /* ✅ 與主選單字體大小一致 */
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+  padding: 8px 0;
+  transition: background 0.3s ease-in-out;
+}
+
+.submenu a:hover {
+  background: #e9ecef;
+}

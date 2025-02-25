@@ -7,7 +7,10 @@ import "./Header.css";
 function Header({ toggleSidebar }) {
   const [hasNotification] = useState(true);
   const [showNotificationBox, setShowNotificationBox] = useState(false);
-  const [avatarPosition, setAvatarPosition] = useState({ x: window.innerWidth - 80, y: 10 }); 
+  const [avatarPosition, setAvatarPosition] = useState({
+    x: window.innerWidth - 80,
+    y: 10,
+  });
   const avatarRef = useRef(null);
   const isDragging = useRef(false);
   const dragOffset = useRef({ x: 0, y: 0 });
@@ -49,35 +52,62 @@ function Header({ toggleSidebar }) {
   return (
     <header className="header">
       {/* 左側漢堡按鈕 */}
-      <button className="menu-btn" onClick={() => !isDragging.current && toggleSidebar()}>
-        <i className="fas fa-bars"></i>
-      </button>
-
-      {/* 可拖動的個人頭像 */}
-      <div
-        className="profile-section"
-        ref={avatarRef}
-        style={{ left: `${avatarPosition.x}px`, top: `${avatarPosition.y}px` }}
-        onMouseDown={handleMouseDown}
-        onClick={() => !isDragging.current && setShowNotificationBox(!showNotificationBox)} // ✅ 確保拖動時不觸發點擊
-      >
-        <img src="src\image\handshot.png" alt="User Avatar" className="profile-pic" />
-        {hasNotification && <span className="red-dot"></span>} 
+      <div className="header-left">
+        <button
+          className="menu-btn"
+          onClick={() => !isDragging.current && toggleSidebar()}
+        >
+          <i className="fas fa-bars"></i>
+        </button>
       </div>
 
-      {/* 通知欄（位於頭像左下角） */}
-      {showNotificationBox && (
+      {/* 中間logo */}
+      <div className="header-center">
+        <img
+          src="src\image\logo.png"
+          alt="header-logo"
+          className="header-logo"
+        />
+      </div>
+
+      {/* 可拖動的個人頭像 */}
+      <div className="header-right">
         <div
-          className="notification-box"
+          className="profile-section"
+          ref={avatarRef}
           style={{
-            left: `${avatarPosition.x - 200}px`, 
-            top: `${avatarPosition.y + 50}px`,
+            left: `${avatarPosition.x}px`,
+            top: `${avatarPosition.y}px`,
           }}
+          onMouseDown={handleMouseDown}
+          onClick={() =>
+            !isDragging.current && setShowNotificationBox(!showNotificationBox)
+          } // ✅ 確保拖動時不觸發點擊
         >
-          <p><i className="fas fa-exclamation-circle"></i> 你有 1 則新訊息</p>
-          <a href="#">查看</a>
+          <img
+            src="src\image\handshot.png"
+            alt="User Avatar"
+            className="profile-pic"
+          />
+          {hasNotification && <span className="red-dot"></span>}
         </div>
-      )}
+
+        {/* 通知欄（位於頭像左下角） */}
+        {showNotificationBox && (
+          <div
+            className="notification-box"
+            style={{
+              left: `${avatarPosition.x - 200}px`,
+              top: `${avatarPosition.y + 50}px`,
+            }}
+          >
+            <p>
+              <i className="fas fa-exclamation-circle"></i> 你有 1 則新訊息
+            </p>
+            <a href="#">查看</a>
+          </div>
+        )}
+      </div>
     </header>
   );
 }
